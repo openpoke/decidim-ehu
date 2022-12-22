@@ -5,3 +5,52 @@
 // To override CSS variables or Foundation settings use _decidim-settings.scss
 //
 // By default this is empty.
+
+/*Fuentes EHU Sans*/
+@font-face {
+  font-family: 'EHUSans';
+  src: url('fonts/EHUSans-Light.otf') format('opentype');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'EHUSans';
+  src: url('fonts/EHUSans-Regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'EHUSans';
+  src: url('fonts/EHUSans-Bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 700;
+}
+
+h1.hero-heading{
+  font-family: "EHUSerif", Sans-Serif;
+}
+
+.subhero h2.heading2{
+  font-family: "EHUSerif", Sans-Serif;
+}
+
+
+.process-header h1.text-highlight{
+  font-family: "EHUSerif", Sans-Serif;
+}
+
+.process-nav li{
+  font-family: "EHUSans", Sans-Serif;
+  font-weight: 700;
+}
+
+h5 strong{
+  font-family: "EHUSans", Sans-Serif;
+  font-weight: 700;
+}
+
+body, li, p{
+   font-family: "EHUSans", Sans-Serif;
+}
