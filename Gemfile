@@ -15,7 +15,7 @@ gem "decidim", DECIDIM_VERSION
 # gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-term_customizer", git: "https://github.com/openpoke/decidim-module-term_customizer"
-gem "decidim-decidim_awesome", git: "https://github.com/openpoke/decidim-module-decidim_awesome"
+gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome"
 
 gem "bootsnap", "~> 1.3"
 
