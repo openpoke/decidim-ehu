@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-if Rails.env.production? && Rails.application.secrets.rack_attack_skip.present?
+if Rails.env.production?
   # TODO: add internal canodrom ip here
   # Rack::Attack.safelist_ip("5.6.7.0/24")
 
@@ -17,8 +17,10 @@ if Rails.env.production? && Rails.application.secrets.rack_attack_skip.present?
     request.env.dig("rack.session", "warden.user.user.key").present?
   end
 
-  Rack::Attack.safelist("bypass with secret param") do |request|
-    # Requests are allowed if the return value is truthy
-    request.params["skip_rack_attack"] == Rails.application.secrets.rack_attack_skip
+  if Rails.application.secrets.rack_attack_skip.present?
+    Rack::Attack.safelist("bypass with secret param") do |request|
+      # Requests are allowed if the return value is truthy
+      request.params["skip_rack_attack"] == Rails.application.secrets.rack_attack_skip
+    end
   end
 end
