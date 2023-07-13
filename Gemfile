@@ -8,11 +8,11 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", tag: "release/0.26-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
-# gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-conferences", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-elections", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
-# gem "decidim-templates", DECIDIM_VERSION
+gem "decidim-templates", DECIDIM_VERSION
 
 gem "decidim-term_customizer", git: "https://github.com/openpoke/decidim-module-term_customizer"
 gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome"
