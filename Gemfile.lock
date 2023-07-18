@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 5c8852ce55b392e721a20f510fa3b85ef99899aa
+  revision: ace88bda19c9712530f4cacabff7da0be73398d6
   tag: release/0.26-stable
   specs:
     decidim (0.26.7)
@@ -529,7 +529,7 @@ GEM
       tomlrb
     mixlib-shellout (3.2.7)
       chef-utils
-    msgpack (1.7.1)
+    msgpack (1.7.2)
     multi_xml (0.6.0)
     mustache (1.1.1)
     net-imap (0.3.6)
