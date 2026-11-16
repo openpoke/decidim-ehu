@@ -10,7 +10,7 @@ clean_data_portability_job:
   class: "InvokeRakeTaskJob"
   queue: default
   args:
-    task: decidim:delete_data_portability_files
+    task: decidim:delete_download_your_data_files
 
 metrics_job:
   cron: "30 1 * * *"
@@ -18,3 +18,27 @@ metrics_job:
   queue: metrics
   args:
     task: decidim:metrics:all
+
+daily_notifications_digest_job:
+  cron: "5 18 * * *"
+  class: "InvokeRakeTaskJob"
+  queue: mailers
+  status: <%= ENV.fetch("DAILY_NOTIFICATIONS_DIGEST", "enabled") %> # enabled by default
+  args:
+    task: decidim:mailers:notifications_digest_daily
+
+daily_reminders_job:
+  cron: "1 11 * * *"
+  class: "InvokeRakeTaskJob"
+  queue: default
+  status: <%= ENV.fetch("SEND_REMINDERS", "enabled") %> # enabled by default
+  args:
+    task: decidim:reminders:all
+
+weekly_notifications_digest_job:
+  cron: "5 18 * * 0"
+  class: "InvokeRakeTaskJob"
+  queue: mailers
+  status: <%= ENV.fetch("WEEKLY_NOTIFICATIONS_DIGEST", "enabled") %> # enabled by default
+  args:
+    task: decidim:mailers:notifications_digest_weekly
