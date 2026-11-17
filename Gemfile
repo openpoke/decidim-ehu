@@ -19,6 +19,7 @@ gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", 
 gem "bootsnap", "~> 1.7"
 gem "health_check"
 gem "puma"
+gem "rack-proxy", "~> 0.7"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
