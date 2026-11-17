@@ -8,7 +8,6 @@ on:
 
 env:
   RUBY_VERSION: 3.1.7
-  NODE_VERSION: 18.17.1
 
 jobs:
   test-report:
