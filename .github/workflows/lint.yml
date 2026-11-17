@@ -7,13 +7,14 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.0.7
+  RUBY_VERSION: 3.1.7
+  NODE_VERSION: 18.17.1
 
 jobs:
   lint-report:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
 

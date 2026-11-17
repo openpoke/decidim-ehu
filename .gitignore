@@ -49,5 +49,8 @@ config/deploy*
 /public/decidim-packs
 /public/decidim-packs-test
 
-public/sw.js
-public/sw.js.map
+/public/sw.js
+/public/sw.js.map
+
+# Ignore Tailwind configuration
+tailwind.config.js

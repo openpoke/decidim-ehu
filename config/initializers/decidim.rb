@@ -38,7 +38,7 @@ Decidim.configure do |config|
   config.maps = {
     provider: :here,
     api_key: Rails.application.secrets.maps[:api_key],
-    static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+    static: { url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" }
   }
   #
   # == OpenStreetMap (OSM) services ==
@@ -285,6 +285,19 @@ Decidim.configure do |config|
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   # config.consent_cookie_name = "decidim-cc"
+
+  config.social_share_services = Rails.application.secrets.decidim[:social_share_services] if Rails.application.secrets.decidim[:social_share_services].present?
+  config.cache_expiry_time = Rails.application.secrets.decidim[:cache_expiry_time].to_i.minutes if Rails.application.secrets.decidim[:cache_expiry_time].present?
+  config.stats_cache_expiry_time = Rails.application.secrets.decidim[:stats_cache_expiry_time].to_i.minutes if Rails.application.secrets.decidim[:stats_cache_expiry_time].present?
+  config.password_similarity_length = Rails.application.secrets.decidim[:password_similarity_length] if Rails.application.secrets.decidim[:password_similarity_length].present?
+  config.denied_passwords = Rails.application.secrets.decidim[:denied_passwords] if Rails.application.secrets.decidim[:denied_passwords].present?
+  config.content_security_policies_extra = Rails.application.secrets.dig(:decidim, :content_security_policies_extra).to_h.stringify_keys.compact_blank
+end
+
+if Decidim.module_installed? :verifications
+  Decidim::Verifications.configure do |config|
+    config.document_types = Rails.application.secrets.dig(:verifications, :document_types).presence || %w(identification_number passport)
+  end
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

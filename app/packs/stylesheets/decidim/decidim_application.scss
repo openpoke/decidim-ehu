@@ -2,7 +2,6 @@
 // Notice that this file is included at the very end of the stylesheets packs to have
 // more priority
 //
-// To override CSS variables or Foundation settings use _decidim-settings.scss
 //
 // By default this is empty.
 
@@ -25,24 +24,6 @@
   font-family: 'EHUSans';
   src: url('fonts/EHUSans-Bold.otf') format('opentype');
   font-style: normal;
-  font-weight: 700;
-}
-
-h1.hero-heading{
-  font-family: "EHUSerif", Sans-Serif;
-}
-
-.subhero h2.heading2{
-  font-family: "EHUSerif", Sans-Serif;
-}
-
-
-.process-header h1.text-highlight{
-  font-family: "EHUSerif", Sans-Serif;
-}
-
-.process-nav li{
-  font-family: "EHUSans", Sans-Serif;
   font-weight: 700;
 }
 
