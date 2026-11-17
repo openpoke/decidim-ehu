@@ -8,6 +8,7 @@ on:
 
 env:
   RUBY_VERSION: 3.1.7
+  NODE_VERSION: 18.17.1
 
 jobs:
   test-report:
@@ -59,6 +60,11 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+
       - name: Setup & create Database
         run: |
           bundle exec rails db:create db:schema:load
@@ -69,7 +75,7 @@ jobs:
 
       - name: Precompile assets
         run: |
-          yarn install
+          npm ci
           bundle exec rake assets:precompile
         env:
           RAILS_ENV: test
