@@ -17,10 +17,12 @@ if Rails.env.production?
     request.env.dig("rack.session", "warden.user.user.key").present?
   end
 
-  if Rails.application.secrets.rack_attack_skip.present?
+  rack_attack_secret = Decidim::Env.new("RACK_ATTACK_SECRET").to_s
+
+  if rack_attack_secret.present?
     Rack::Attack.safelist("bypass with secret param") do |request|
       # Requests are allowed if the return value is truthy
-      request.params["skip_rack_attack"] == Rails.application.secrets.rack_attack_skip
+      request.params["skip_rack_attack"] == rack_attack_secret
     end
   end
 end
