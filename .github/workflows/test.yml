@@ -38,10 +38,6 @@ jobs:
       - run: |
           sudo apt-get -y update; sudo apt-get -f install libvips libvips-tools
 
-      - uses: nanasess/setup-chromedriver@v2
-        with:
-          chromedriver-version: 154.0.8037.0
-
       - name: Remove Chrome
         run: sudo apt remove google-chrome-stable
 
@@ -49,10 +45,6 @@ jobs:
         with:
           chrome-version: 155
           install-chromedriver: true
-
-      - uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: 119.0.6045.105
 
       - uses: ruby/setup-ruby@v1
         with:
